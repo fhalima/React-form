@@ -29,3 +29,8 @@ h1 {
 label {
     width: 200px;
 }
+
+img {
+    width: 70px !important;
+    height: auto !important;
+}

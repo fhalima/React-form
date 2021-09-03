@@ -1,341 +1,9 @@
-import logo from "./logo.svg";
 import React from "react";
+import PageOne from "./components/PageOne";
+import PageTwo from "./components/PageTwo";
+
 import "./App.css";
 import { render } from "@testing-library/react";
-function PageOne({
-  typeLocationChange,
-  typeLocation,
-  nbrPiecesChange,
-  superficie,
-  superficieChange,
-  capitalMobilierChange,
-  dateDebutLocation,
-  dateLocationChange,
-  selected,
-}) {
-  return (
-    <form className="mt-5">
-      <div className="form-group row mx-auto">
-        <label className="col-5 col-form-label plr-15">
-          Votre maison est louer:
-        </label>
-
-        <div className="col">
-          <div className="row">
-            <button
-              className="btn col mr-5 btn-light"
-              type="button"
-              value="L'année"
-              onClick={typeLocationChange}
-            >
-              L'année
-            </button>
-            <button
-              className="btn col btn-light ml-5 "
-              type="button"
-              value="En courte"
-              onClick={typeLocationChange}
-            >
-              En courte
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="form-group row mx-auto">
-        <label className="col-5 align-items-right m-0">Nombre de pièces</label>
-        <Pieces nbr={9} click={nbrPiecesChange} selected={selected}></Pieces>
-        {/* {pieces(9)} */}
-      </div>
-
-      <div className="form-group row mx-auto">
-        <label className="col-5 align-items-right m-0" htmlFor="metreCube">
-          Indiquer le nombre de nombre de m2:
-        </label>
-        <input
-          className="form-control col-7"
-          type="number"
-          id="metreCube"
-          value={superficie}
-          onChange={superficieChange}
-          placeholder="m2"
-        />
-      </div>
-
-      <div className="form-group row mx-auto">
-        <label className="col-5 col-form-label plr-15">
-          Choisissez le capital mobilier
-        </label>
-
-        <div className="col mx-auto">
-          <div className="row">
-            <button
-              className="btn btn-light col mr-5"
-              type="button"
-              value={10000}
-              onClick={capitalMobilierChange}
-            >
-              10 000€
-            </button>
-            <button
-              className="btn btn-light col ml-5 "
-              type="button"
-              value={20000}
-              onClick={capitalMobilierChange}
-            >
-              20 000€
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="form-group row mx-auto">
-        <label className="col-5 align-items-right m-0" htmlFor="metreCube">
-          Date à laquelle vous souhaitez débuter votre assurance :
-        </label>
-        <input
-          className="form-control col-7"
-          type="date"
-          id="metreCube"
-          value={dateDebutLocation}
-          onChange={dateLocationChange}
-          placeholder="jj/mm/aaaa"
-        />
-      </div>
-    </form>
-  );
-}
-
-function PageTwo({
-  civilite,
-  civiliteChange,
-  nomChange,
-  nom,
-  prenom,
-  prenomChange,
-  telephone,
-  telephoneChange,
-  email,
-  emailChange,
-  adresse,
-  adresseChange,
-  codePostal,
-  codePostalChange,
-  ville,
-  villeChange,
-  adresseLocation,
-  adresseLocationChange,
-  codePostalLocation,
-  codePostalLocationChange,
-  villeLocation,
-  villeLocationChange,
-}) {
-  return (
-    <div>
-      <form className="mt-5">
-        <div className="form-group row mx-auto">
-          <button
-            className="btn btn-light col mr-5 "
-            type="button"
-            value="Madame"
-            onClick={civiliteChange}
-            id="civilite"
-          >
-            Madame
-          </button>
-
-          <button
-            className="btn col btn-light ml-5 "
-            type="button"
-            value="Monsieur"
-            onClick={civiliteChange}
-            id="civilite"
-          >
-            Monsieur
-          </button>
-          <button
-            className="btn col ml-5 btn-light"
-            type="button"
-            value="Société"
-            onClick={civiliteChange}
-            id="civilite"
-          >
-            Société
-          </button>
-        </div>
-
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="nom">
-            Nom
-          </label>
-          <input
-            className="form-control col-7"
-            type="text"
-            id="nom"
-            value={nom}
-            onChange={nomChange}
-            placeholder=""
-          />
-        </div>
-
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="prenom">
-            Prénom
-          </label>
-          <input
-            className="form-control col-7"
-            type="text"
-            id="prenom"
-            value={prenom}
-            onChange={prenomChange}
-            placeholder=""
-          />
-        </div>
-
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="telephone">
-            Téléphone
-          </label>
-          <input
-            className="form-control col-7"
-            type="number"
-            id="telephone"
-            value={telephone}
-            onChange={telephoneChange}
-            placeholder=""
-          />
-        </div>
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="form-control col-7"
-            type="email"
-            id="email"
-            value={email}
-            onChange={emailChange}
-            placeholder=""
-          />
-        </div>
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="adresse">
-            Adresse
-          </label>
-          <input
-            className="form-control col-7"
-            type="adresse"
-            id="adresse"
-            value={adresse}
-            onChange={adresseChange}
-            placeholder=""
-          />
-        </div>
-
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="cp">
-            Code Postal
-          </label>
-          <input
-            className="form-control col-7"
-            type="text"
-            id="cp"
-            value={codePostal}
-            onChange={codePostalChange}
-            placeholder=""
-          />
-        </div>
-
-        <div className="form-group row mx-auto">
-          <label className="col-5 align-items-right m-0" htmlFor="ville">
-            Ville
-          </label>
-          <input
-            className="form-control col-7"
-            type="text"
-            id="ville"
-            value={ville}
-            onChange={villeChange}
-            placeholder=""
-          />
-        </div>
-      </form>
-
-      <div>
-        <form>
-          <h2>Informations de votre bien en location</h2>
-          <div className="form-group row mx-auto">
-            <label
-              className="col-5 align-items-right m-0"
-              htmlFor="adresseLocation"
-            >
-              Adresse de location
-            </label>
-            <input
-              className="form-control col-7"
-              type="text"
-              id="adresseLocation"
-              value={adresseLocation}
-              onChange={adresseLocationChange}
-              placeholder=""
-            />
-          </div>
-          <div className="form-group row mx-auto">
-            <label className="col-5 align-items-right m-0" htmlFor="cpLocation">
-              Code Postal
-            </label>
-            <input
-              className="form-control col-7"
-              type="text"
-              id="cpLocation"
-              value={codePostalLocation}
-              onChange={codePostalLocationChange}
-              placeholder=""
-            />
-          </div>
-
-          <div className="form-group row mx-auto">
-            <label
-              className="col-5 align-items-right m-0"
-              htmlFor="villeLocation"
-            >
-              Ville
-            </label>
-            <input
-              className="form-control col-7"
-              type="text"
-              id="villeLocation"
-              value={villeLocation}
-              onChange={villeLocationChange}
-              placeholder=""
-            />
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-}
-function Pieces({ nbr, click, selected }) {
-  const buttons = [];
-  for (var n = 1; n <= nbr; n++) {
-    buttons.push(
-      <button
-        className="btn btn-light mr-1 col-auto"
-        value={n}
-        key={n}
-        onClick={click}
-      >
-        {n}
-      </button>
-    );
-  }
-
-  return (
-    <div className="col-auto">
-      <div className="row">{buttons}</div>
-    </div>
-  );
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -384,14 +52,12 @@ class App extends React.Component {
     this.villeLocationChange = this.villeLocationChange.bind(this);
   }
   typeLocationChange(e) {
-    const value = e.target.value;
+    const value = e.target.innerText;
     this.setState((state) => ((state.aLouer.typeLocation = value), state));
-    console.log(this.state.aLouer);
   }
   nbrPiecesChange(e) {
     e.preventDefault();
-    const value = e.target.value;
-    console.log(e.target.value);
+    const value = e.target.innerText;
     this.setState((state) => ((state.aLouer.nombrePieces = value), state));
   }
   superficieChange(e) {
@@ -400,7 +66,7 @@ class App extends React.Component {
     console.log(this.state.aLouer);
   }
   capitalMobilierChange(e) {
-    const value = e.target.value;
+    const value = e.target.innerText;
     this.setState((state) => ((state.aLouer.capitalMobilier = value), state));
     console.log(this.state.aLouer);
   }
@@ -418,8 +84,8 @@ class App extends React.Component {
     console.log(this.state);
   }
   civiliteChange(e) {
-    const el = e.target;
-    this.setState((state) => ((state.Proprietaire.civilite = el.value), state));
+    const value = e.target.innerText;
+    this.setState((state) => ((state.Proprietaire.civilite = value), state));
   }
   nomChange(e) {
     const value = e.target.value;
@@ -445,7 +111,7 @@ class App extends React.Component {
   }
   codePostalChange(e) {
     const value = e.target.value;
-    this.setState((state) => ((state.Proprietaire.codePostal = value), state));
+    this.setState({ ...this.state.Proprietaire, codePostal: value });
   }
   villeChange(e) {
     const value = e.target.value;
